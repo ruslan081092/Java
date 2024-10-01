@@ -27,7 +27,7 @@ public class Main {
                 dinnerAdvisor.getAdvice(moneyBeforeSalary, daysBeforeSalary);
             } else if (command == 3) {
                 // Номер дня больше не нужен. Уберите вопрос и считывание номера дня
-                System.out.println("За какой день вы хотите ввести трату: 1-ПН, 2-ВТ, 3-СР, 4-ЧТ, 5-ПТ, 6-СБ, 7-ВС?");
+//                System.out.println("За какой день вы хотите ввести трату: 1-ПН, 2-ВТ, 3-СР, 4-ЧТ, 5-ПТ, 6-СБ, 7-ВС?");
                 int day = scanner.nextInt();
                 System.out.println("Введите размер траты:");
                 double expense = scanner.nextDouble();
