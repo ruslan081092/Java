@@ -1,5 +1,4 @@
 package Convert;
-import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.Arrays;
 
@@ -27,24 +26,13 @@ public class Main {
             } else if (command == 2) {
                 dinnerAdvisor.getAdvice(moneyBeforeSalary, daysBeforeSalary);
             } else if (command == 3) {
-                for (double i = 0; i < expensesManager.expenses.size(); i++) {
-                    if (!expensesManager.expenses.equals(0)) {
-                        expensesManager.expenses.add(i);
-                        break;
-                    }
-                }
-
-
-                System.out.println("Введите размер траты:");
-
-                //moneyBeforeSalary = expensesManager.saveExpense(moneyBeforeSalary);
-
                 // Номер дня больше не нужен. Уберите вопрос и считывание номера дня
 //                System.out.println("За какой день вы хотите ввести трату: 1-ПН, 2-ВТ, 3-СР, 4-ЧТ, 5-ПТ, 6-СБ, 7-ВС?");
-                //int day = scanner.nextInt();
-                //double expense = scanner.nextDouble();
+                int day = scanner.nextInt();
+                System.out.println("Введите размер траты:");
+                double expense = scanner.nextDouble();
                 // Сигнатура метода изменится, учитывайте это
-
+                moneyBeforeSalary = expensesManager.saveExpense(moneyBeforeSalary, expense, day);
             } else if (command == 4) {
                 expensesManager.printAllExpenses();
             } else if (command == 5) {
@@ -57,7 +45,6 @@ public class Main {
             }
         }
     }
-
 
     public static void printMenu() {
         System.out.println("Что вы хотите сделать? ");
