@@ -27,24 +27,23 @@ public class Main {
             } else if (command == 2) {
                 dinnerAdvisor.getAdvice(moneyBeforeSalary, daysBeforeSalary);
             } else if (command == 3) {
-                while (true) {
-                    System.out.println("Введите размер траты:");
-                    Double D = scanner.nextDouble();
-                    expensesManager.expenses.add(D);
-                    if (expensesManager.expenses.equals(0)) {
+                for (double i = 0; i < expensesManager.expenses.size(); i++) {
+                    if (!expensesManager.expenses.equals(0)) {
+                        expensesManager.expenses.add(i);
                         break;
                     }
-
-                    //moneyBeforeSalary = expensesManager.saveExpense(moneyBeforeSalary);
-
                 }
 
 
-                    // Номер дня больше не нужен. Уберите вопрос и считывание номера дня
+                System.out.println("Введите размер траты:");
+
+                //moneyBeforeSalary = expensesManager.saveExpense(moneyBeforeSalary);
+
+                // Номер дня больше не нужен. Уберите вопрос и считывание номера дня
 //                System.out.println("За какой день вы хотите ввести трату: 1-ПН, 2-ВТ, 3-СР, 4-ЧТ, 5-ПТ, 6-СБ, 7-ВС?");
-                    //int day = scanner.nextInt();
-                    //double expense = scanner.nextDouble();
-                    // Сигнатура метода изменится, учитывайте это
+                //int day = scanner.nextInt();
+                //double expense = scanner.nextDouble();
+                // Сигнатура метода изменится, учитывайте это
 
             } else if (command == 4) {
                 expensesManager.printAllExpenses();
@@ -58,6 +57,7 @@ public class Main {
             }
         }
     }
+
 
     public static void printMenu() {
         System.out.println("Что вы хотите сделать? ");

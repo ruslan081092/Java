@@ -9,13 +9,12 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         ArrayList<Integer> arr = new ArrayList<>();
 
-        for (int i = 0; i <arr.size(); i++) {
-            arr.add(i);
-            System.out.println(arr.get(i));
+
+        for (int i = 0; i < arr.size(); i++) {
+            if (!arr.equals(0)) {
+                System.out.println("Введите Значение в ArrayList");
+                arr.add(i);
+            }
         }
-
-
-
-
     }
 }
