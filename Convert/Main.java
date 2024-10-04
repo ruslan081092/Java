@@ -1,7 +1,6 @@
 package Convert;
-import java.util.ArrayList;
+
 import java.util.Scanner;
-import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
@@ -10,42 +9,27 @@ public class Main {
         double moneyBeforeSalary = scanner.nextDouble();
         System.out.println("Сколько дней до зарплаты?");
         int daysBeforeSalary = scanner.nextInt();
-
         Converter converter = new Converter(444.06, 489.32, 3.14);
         DinnerAdvisor dinnerAdvisor = new DinnerAdvisor();
         ExpensesManager expensesManager = new ExpensesManager();
 
         while (true) {
             printMenu();
+
             int command = scanner.nextInt();
 
             if (command == 1) {
                 System.out.println("Ваши сбережения: " + moneyBeforeSalary + " KZT");
                 System.out.println("В какую валюту хотите конвертировать? Доступные варианты: 1 - USD, 2 - EUR, 3 - JPY.");
+
                 int currency = scanner.nextInt();
+
                 converter.convert(moneyBeforeSalary, currency);
             } else if (command == 2) {
                 dinnerAdvisor.getAdvice(moneyBeforeSalary, daysBeforeSalary);
             } else if (command == 3) {
-                while (true) {
-                    System.out.println("Введите размер траты:");
-                    Double D = scanner.nextDouble();
-                    expensesManager.expenses.add(D);
-                    if (expensesManager.expenses.equals(0)) {
-                        break;
-                    }
-
-                    //moneyBeforeSalary = expensesManager.saveExpense(moneyBeforeSalary);
-
-                }
-
-
-                    // Номер дня больше не нужен. Уберите вопрос и считывание номера дня
-//                System.out.println("За какой день вы хотите ввести трату: 1-ПН, 2-ВТ, 3-СР, 4-ЧТ, 5-ПТ, 6-СБ, 7-ВС?");
-                    //int day = scanner.nextInt();
-                    //double expense = scanner.nextDouble();
-                    // Сигнатура метода изменится, учитывайте это
-
+                double totalSum = expensesManager.inputExpense();
+                expensesManager.saveExpense(moneyBeforeSalary, totalSum);
             } else if (command == 4) {
                 expensesManager.printAllExpenses();
             } else if (command == 5) {
@@ -68,6 +52,4 @@ public class Main {
         System.out.println("5 - Показать самую большую сумму расходов");
         System.out.println("0 - Выход");
     }
-    }
-
-
+}

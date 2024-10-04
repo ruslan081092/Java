@@ -1,20 +1,19 @@
 package Convert;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class ExpensesManager {
-    //double[] expenses; // Замените массив списком
     ArrayList <Double> expenses;
+    Scanner scanner = new Scanner(System.in);
 
     ExpensesManager() {
-        //expenses = new double[7]; // Создайте список в конструкторе
         expenses = new ArrayList<>();
     }
 
-    // Номер дня больше не нужен
-    double saveExpense(double moneyBeforeSalary, double expense /*int day*/) {
+    double saveExpense(double moneyBeforeSalary, double expense) {
         moneyBeforeSalary = moneyBeforeSalary - expense;
-        //expenses[day - 1] = expenses[day - 1] + expense; // Эту строку нужно убрать
+
         System.out.println("Значение сохранено! Ваш текущий баланс в тенге: " + moneyBeforeSalary);
         if (moneyBeforeSalary < 5000) {
             System.out.println("На вашем счету осталось совсем немного. Стоит начать экономить!");
@@ -30,18 +29,32 @@ public class ExpensesManager {
 
     double findMaxExpense() {
         double maxExpense = 0;
-        for(double i: expenses) {
-            if (expenses.get((int)i) > maxExpense) {
+
+        for(Double i: expenses) {
+            if (i>maxExpense) {
                 maxExpense = i;
             }
-
         }
-//        for (int i = 0; i < expenses.length; i++) { // Используйте сокращённую форму цикла
-//            if (expenses[i] > maxExpense) {
-//                maxExpense = expenses[i];
-//            }
-//        }
+
         return maxExpense;
     }
+
+    double inputExpense() {
+        double sum = 0;
+
+        while (true) {
+            System.out.println("Введите размер траты:");
+
+            double input = scanner.nextDouble();
+            this.expenses.add(input);
+
+            if (input == 0.0) {
+                break;
+            }
+            sum = sum + input;
+        }
+        return sum;
+    }
 }
+
 
