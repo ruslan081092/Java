@@ -39,8 +39,11 @@ public class Main {
                 expensesManager.removeAllExpenses();
             } else if (command == 7) {
                 //«7 — Найти и удалить трату».
-                if(expensesManager.expenses.isEmpty()) {
-                    double expense = expensesManager.removeExpense();
+                if(!expensesManager.expenses.isEmpty()) {
+                    double expense = scanner.nextDouble();
+                    expensesManager.removeExpense(expense);
+
+
                 } else {
                     System.out.println("Список трат пуст.");
                 }

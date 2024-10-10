@@ -71,7 +71,7 @@ public class ExpensesManager {
         } else {
             System.out.println("Список не пустой есть Значение ");
             expenses.contains(expense);
-        }
+
         //Чтобы удалить элемент, нужно вычислить его индекс с помощью полной формы
         // цикла for (int i = 0; i < expenses.size(); i++).
         // Если expenses.get(i) == expense, то можно сохранить значение переменной итерирования index = i и
@@ -82,6 +82,7 @@ public class ExpensesManager {
                 expenses.remove(index);
                 break;
             }
+        }
 
 
 

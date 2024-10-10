@@ -5,24 +5,20 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+        int size = 10;
+        int[] arr = new int[size];
 
-        Scanner scanner = new Scanner(System.in);
-        ArrayList<Integer> arr = new ArrayList<>();
-
-//        arr.add(1);
-//        arr.add(2);
-//        arr.add(3);
-//        arr.add(4);
-//        arr.add(5);
-        if (arr.isEmpty()) {
-            System.out.println("Пустой");
-        } else {
-            System.out.println("Есть Значение ");
-
+        for (int i = 0; i < size; i++) {
+            arr[i] = i;
+            System.out.println(arr[i]);
         }
-
-
-
-
     }
 }
+
+
+
+
+
+
+
+
