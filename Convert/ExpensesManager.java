@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class ExpensesManager {
-    ArrayList <Double> expenses;
+    ArrayList<Double> expenses;
     Scanner scanner = new Scanner(System.in);
 
     ExpensesManager() {
@@ -30,8 +30,8 @@ public class ExpensesManager {
     double findMaxExpense() {
         double maxExpense = 0;
 
-        for(Double i: expenses) {
-            if (i>maxExpense) {
+        for (Double i : expenses) {
+            if (i > maxExpense) {
                 maxExpense = i;
             }
         }
@@ -44,7 +44,6 @@ public class ExpensesManager {
 
         while (true) {
             System.out.println("Введите размер траты:");
-
             double input = scanner.nextDouble();
             this.expenses.add(input);
 
@@ -57,41 +56,26 @@ public class ExpensesManager {
     }
 
     void removeAllExpenses() {
-        //Внутри removeAllExpenses() должен вызываться метод для очистки списка — expenses.clear()
         expenses.clear();
-
     }
 
     void removeExpense(double expense) {
-//        Внутри removeExpense(double expense) нужно написать ветвление, где сначала проверить, если ли значения в списке — expenses.isEmpty().
-//        Если список не пустой, то нужно проверить, есть ли в нём нужный элемент — expenses.contains(expense).
-        int index=0;
         if (expenses.isEmpty()) {
             System.out.println("Значение в Списке пусто ");
+        } else if (expenses.contains(expense)) {
+            removeElement(expense);
+            System.out.println("Значение Удалено из списка");
         } else {
-            System.out.println("Список не пустой есть Значение ");
-            expenses.contains(expense);
+            System.out.println("Такого Элемента нет в списки ");
         }
-        //Чтобы удалить элемент, нужно вычислить его индекс с помощью полной формы
-        // цикла for (int i = 0; i < expenses.size(); i++).
-        // Если expenses.get(i) == expense, то можно сохранить значение переменной итерирования index = i и
-        // прервать цикл с помощью break.
-        for (int i = 0; i < expenses.size() ; i++) {
-            if (expenses.get(i) == expense) {
-                index = i;
-                expenses.remove(index);
-                break;
-            }
-
-
-
-        }
-
-
-
     }
 
-
+    private void removeElement(double expense) {
+        for (int i = 0; i < expenses.size(); i++) {
+            if (expenses.get(i) == expense) {
+                expenses.remove(i);
+                break;
+            }
+        }
+    }
 }
-
-

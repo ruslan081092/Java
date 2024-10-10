@@ -35,16 +35,10 @@ public class Main {
             } else if (command == 5) {
                 System.out.println("Самая большая сумма расходов составила " + expensesManager.findMaxExpense() + " тенге.");
             } else if (command == 6) {
-            //«6 — Очистить список трат»;
                 expensesManager.removeAllExpenses();
             } else if (command == 7) {
-                //«7 — Найти и удалить трату».
-                if(expensesManager.expenses.isEmpty()) {
-                    double expense = expensesManager.removeExpense();
-                } else {
-                    System.out.println("Список трат пуст.");
-                }
-
+                double expense = scanner.nextDouble();
+                expensesManager.removeExpense(expense);
             } else if (command == 0) {
                 System.out.println("Выход");
                 break;
@@ -61,8 +55,8 @@ public class Main {
         System.out.println("3 - Ввести трату");
         System.out.println("4 - Показать траты");
         System.out.println("5 - Показать самую большую сумму расходов");
-        System.out.println("6 - Очистить список трат"); // "6 - Очистить список трат"
-        System.out.println("7 - Найти и удалить трату"); // "7 - Найти и удалить трату"
+        System.out.println("6 - Очистить список трат");
+        System.out.println("7 - Найти и удалить трату");
         System.out.println("0 - Выход");
     }
 }
